@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo"> CREAR USUARIO</span><div class="container">
+    <div class="row">
+        <div class="input-group mb-3">
+            <input [(ngModel)]="usuario.name" required="" type="text" class="form-control" placeholder="Nombre" required="">
+        </div>
+        <div class="input-group mb-3">
+            <input [(ngModel)]="usuario.lastName" required="" type="text" class="form-control" placeholder="Apellido" required="">
+        </div>
+        <div class="input-group mb-3">
+            <input [(ngModel)]="usuario.phone" required="" type="number" class="form-control" placeholder="Telefono" required="">
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Tipo de documento</label>
+            <select [(ngModel)]="usuario.typeID" class="form-select" id="inputGroupSelect01">
+              <option selected value="cc">Cedula de ciudadania</option>
+              <option value="ti">Tarjeta de identidad</option>
+              <option value="ce">Cedula extranjera</option>
+              <option value="ps">Pasaporte</option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <input [(ngModel)]="usuario.dni" required="" type="text" class="form-control" placeholder="Numero de documento">
+        </div>
+        <div class="input-group mb-3">
+            <input [(ngModel)]="usuario.user" required="" type="text" class="form-control" placeholder="Usuario">
+        </div>
+        <div class="input-group mb-3">
+           <input [(ngModel)]="usuario.password" required="" type="password" class="form-control" placeholder="Contraseña">
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Cargo</label>
+            <select [(ngModel)]="usuario.rol" class="form-select" id="inputGroupSelect01">
+              <option selected value="1">Administrador</option>
+              <option value="2">Empleado</option>
+            </select>
+          </div>
+        <div class="mb-3">
+          <p></p>
+          <button (click)="atras()" class="btn btn-primary btn-lg float-start">Atras</button>
+          <button class="btn btn-primary btn-lg float-end" (click)="Agregar()">Guardar</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+      <div class="img-container">
+        <img src="assets/logo.png" alt="Logo" />
+      </div>
+  </div>
+  <div class="col-md-5 ">
+    <div class="container mt-5">
+      <div class="row">
+              <div class="card border-light">
+                  <div class="card-body text-center">
+                     <h1>Login</h1>
+                      <div class="mb-3 align-items-center my-3">
+                        <input [(ngModel)]="usuario.user" required="" type="text" class="form-control" placeholder="Usuario">
+                      </div>
+                      <div class="mb-3 align-items-center">
+                       <input [(ngModel)]="usuario.password" required="" type="password" class="form-control" placeholder="Contraseña">
+                     </div>
+                     <div class="row align-items-center py-4">
+                      <p></p>
+                      <button class="btn btn-primary" (click)="logIn()">Iniciar sesión</button>
+                     </div>
+              </div>
+       </div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>  

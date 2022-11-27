@@ -1,0 +1,37 @@
+<div *ngIf="!authService.loggedin(); else loggedinn">
+<a></a>
+</div>
+<ng-template #loggedinn>
+<div class="sidebar" [ngClass]="collapsed ? 'sidebar-collapsed' : ''">
+  <ul>
+    <li class="sidebar-item" ><a class="nav-link " style="cursor: pointer; color: rgb(255, 255, 255);" (click)="authService.loggout()">Cerrar sesión</a></li>
+  </ul>
+    <div class="logo-container">
+      <div class="logo-text" *ngIf="collapsed">Regalos y Flores</div>
+      </div >
+      <div *ngIf="authService.roled(); else roledin">
+      <ul class="sidebar-nav" >
+        <li class="sidebar-item" *ngFor="let data of navData">
+          <a class="sidebar-link" [routerLink]="[data.routerLink]">
+            <!--<i class="sidebar-item-icon" [class]="data.icon"></i>-->
+            <span class="sidebar-link-text" *ngIf="collapsed">{{
+              data.label
+            }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <ng-template #roledin>
+      <ul class="sidebar-nav" >
+        <li class="sidebar-item" *ngFor="let data of navDataNo">
+          <a class="sidebar-link" [routerLink]="[data.routerLink]">
+            <span class="sidebar-link-text" *ngIf="collapsed">{{
+              data.label
+            }}</span>
+          </a>
+        </li>
+      </ul>
+    </ng-template>
+  </div>
+</ng-template>  
+<router-outlet></router-outlet>
