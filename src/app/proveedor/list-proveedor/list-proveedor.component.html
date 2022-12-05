@@ -12,6 +12,7 @@
                 <td>Productos</td>
                 <td>Editar</td>
                 <td>Eliminar</td>
+                <td>Pagar</td>
                 </tr>
                 <tr *ngFor="let p of proveedor; let iControl = index">    
                 <td>{{p.name}}</td>
@@ -23,6 +24,9 @@
                 </td>
                 <td>
                     <i (click)="delete(p.id)" class="fas fa-trash text-danger"></i>
+                </td>
+                <td>
+                    <i (click)="pagar(p.id)" class="fa-regular fa-money-bill-1 text-success"></i>
                 </td>
                 </tr>
                 </table>

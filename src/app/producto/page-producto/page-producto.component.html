@@ -1,0 +1,14 @@
+<div class="container my-5">
+    <div class="row" >
+        <div class="col-lg-10 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+            <span class="titulo">PRODUCTOS</span>
+            <button *ngIf="authService.roled()" class="btn btn-success float-end" (click)="dirigir()">Agregar</button>
+            <app-list-producto></app-list-producto>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

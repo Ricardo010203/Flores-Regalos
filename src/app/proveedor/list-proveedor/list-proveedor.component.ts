@@ -36,6 +36,10 @@ export class ListProveedorComponent implements OnInit {
     });
   }
 
+  pagar(id:string){
+    this.router.navigate(['crearpago/'+id]);
+  }
+
   editar(id:string){
     this.router.navigate(['editarproveedor/'+id]);
  }

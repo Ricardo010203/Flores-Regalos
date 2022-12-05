@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo"> REALIZAR PAGO</span><div class="container">
+    <div class="row">
+        <div class="input-group mb-3">
+            <input [(ngModel)]="pago.totalPago" required="" type="number" class="form-control" placeholder="Total a pagar" required="">
+        </div>
+        <div class="input-group mb-3">
+            <input [(ngModel)]="pago.fecha" required="" type="date" class="form-control" placeholder="fecha" required="">
+        </div>
+        <div class="input-group mb-3">
+            <input [(ngModel)]="pago.descripcion" required="" type="text" class="form-control" placeholder="descripcion" required="">
+        </div>
+        <div class="mb-3">
+          <p></p>
+          <button (click)="atras()" class="btn btn-primary btn-lg float-start">Atras</button>
+          <button class="btn btn-primary btn-lg float-end" (click)="Agregar()">Guardar</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

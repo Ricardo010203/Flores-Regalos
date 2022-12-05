@@ -4,6 +4,10 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Usuario } from '../../interfaces/Usuario';
 //import { ToastrService } from 'ngx-toastr';
 
+
+//import 'sweetalert2/src/sweetalert2.scss';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,7 +34,11 @@ export class LoginComponent implements OnInit {
     this.authService.singin(this.usuario).subscribe( (res:any) => {
       console.log(res);
       if(res == 'Usuario y/o contraseña incorrectos'){
-//        this.toastr.error(res);
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Usuario y/o contraseña incorrectos'
+        })
         console.log('No hay acceso');
       }else{
         this.authService.rol(this.usuario).subscribe((res:any) => {

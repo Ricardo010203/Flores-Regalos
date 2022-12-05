@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">AGREGAR PRODUCTO</span><div class="container">
+    <div class="row">
+        <div class="input-group mb-3">
+            <input [(ngModel)]="producto.nombre" required="" type="text" class="form-control" placeholder="Nombre" required="">
+        </div>
+        <div class="input-group mb-3">
+            <input [(ngModel)]="producto.description" required="" type="text" class="form-control" placeholder="Descripción" required="">
+        </div>
+        <div class="input-group mb-3">
+            <input [(ngModel)]="producto.price" required="" type="number" class="form-control" placeholder="Precio" required="">
+        </div>
+        <div class="input-group mb-3">
+            <input [(ngModel)]="producto.stock" required="" type="number" class="form-control" placeholder="Cantidad" required="">
+        </div>
+        <div class="mb-3">
+          <p></p>
+          <button (click)="atras()" class="btn btn-primary btn-lg float-start">Atras</button>
+          <button class="btn btn-primary btn-lg float-end" (click)="Agregar()">Guardar</button>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,69 @@
+<div class="container mt-5">
+<div class="col-lg-8 offset-lg-3">
+    <div class="card">
+        <div class="card-body text-center">
+            <h4>VENTA ACTUAL</h4>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">Tipo de pago</label>
+                <select style="width: 100px;" [(ngModel)]="tipo.tipo" class="form-select" id="inputGroupSelect01">
+                  <option selected value="efectivo">Efectivo</option>
+                  <option value="t.credito">Tarjeta de credito</option>
+                  <option value="t.debito">Tarjeta de debito</option>
+                  <option value="transferencia">Transferencia</option>
+                </select>
+              </div>
+            <h1 style="text-align: center;" *ngIf="venta.length == 0">No hay productos en la venta</h1>
+            <table class="table table=striped table=hover" *ngIf="venta.length > 0">
+                <tr>
+                <td>Cod. Producto</td>
+                <td>Cantidad</td>
+                <td>Precio</td>
+                <td>Eliminar</td>
+                </tr>
+                <tr *ngFor="let v of venta; let iControl = index">    
+                <td>{{v.nombre}}</td>
+                <td>{{v.cantidad}}</td>
+                <td>{{v.precio}}</td> 
+                <td>
+                    <i (click)="delete(v.id)" class="fas fa-trash text-danger"></i>
+                </td>
+                </tr>
+                </table>
+                <button class="btn btn-danger" (click)="cancelar()" *ngIf="venta.length > 0">Cancelar venta</button>
+                <button class="btn btn-success" (click)="generar()" *ngIf="venta.length > 0">Generar factura</button>
+<div class="container mt-5">
+    <input  [(ngModel)]="nombre.nombre" type="text" placeholder="buscar producto">
+        <button class="btn btn-success " (click)="buscar()">Buscar</button>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card border-light">
+                <div class="card-body text-center">
+            <h1 style="text-align: center;" *ngIf="productos.length == 0">No hay productos registrados</h1>
+            <table class="table table=striped table=hover">
+                <tr>
+                <td>Producto</td>
+                <td>Cantidad</td>
+                <td>Proveedor</td>
+                <td>Precio</td>
+                <td>Cuantos</td>
+                <td>Seleccionar</td>
+                </tr>
+                <tr *ngFor="let p of productos; let iControl = index">    
+                <td>{{p.nombre}}</td>
+                <td>{{p.stock}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td><input style="width: 50px;" [(ngModel)]="cantidad" type="number" ></td>
+                <td>
+                    <i (click)="seleccionar(p.id)" class="fa-regular fa-square-check text-success" *ngIf="p.stock > 0"></i>
+                </td>
+                </tr>
+                </table>
+            </div>
+         </div>
+     </div>
+    </div>
+</div>
+</div>
+</div>
+</div></div>

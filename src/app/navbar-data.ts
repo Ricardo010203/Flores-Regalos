@@ -10,7 +10,19 @@ export const navbarData = [
   {
       routerLink: 'proveedor',
       label: 'Proveedores'
-    },  
+    },
+  {
+      routerLink: 'producto',
+      label: 'Productos'
+    },
+  {
+      routerLink: 'venta',
+      label: 'Ventas'
+    },
+  {
+      routerLink: 'domicilio',
+      label: 'Domicilio'
+    },        
    
   ];
   

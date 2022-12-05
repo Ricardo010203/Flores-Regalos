@@ -14,6 +14,12 @@ import { AuthGuard } from './auth.guard';
 import { AuthModule } from './auth/auth.module';
 import { RoleGuard } from './role.guard';
 import { ProveedorModule } from './proveedor/proveedor.module';
+import { PagoModule } from './pago/pago.module';
+import { ProductoModule } from './producto/producto.module';
+import { VentasModule } from './ventas/ventas.module';
+import { DomicilioModule } from './domicilio/domicilio.module';
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +32,11 @@ import { ProveedorModule } from './proveedor/proveedor.module';
     HttpClientModule,
     UsuarioModule,
     AuthModule,
-    ProveedorModule
+    ProveedorModule,
+    PagoModule,
+    ProductoModule,
+    VentasModule,
+    DomicilioModule
   //  BrowserAnimationsModule,
  //   ToastrModule.forRoot()
   ],

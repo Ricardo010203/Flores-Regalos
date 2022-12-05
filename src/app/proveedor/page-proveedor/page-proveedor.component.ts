@@ -19,4 +19,8 @@ export class PageProveedorComponent implements OnInit {
     this.router.navigate(['crearproveedor']);
   }
 
+  dirigirPagos(){
+    this.router.navigate(['pago']);
+  }
+
 }
