@@ -39,8 +39,14 @@ export class LoginComponent implements OnInit {
           title: 'Error',
           text: 'Usuario y/o contraseña incorrectos'
         })
-        console.log('No hay acceso');
       }else{
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Acceso correcto',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.authService.rol(this.usuario).subscribe((res:any) => {
           console.log(res);
           localStorage.setItem('rol',res)

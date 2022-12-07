@@ -34,7 +34,7 @@ export class EditVentaComponent implements OnInit {
 
   listarSemana(){
     this.gananciaService.getGananciaSemana().subscribe((res:any) => {
-      this.gananciaSemana = res;
+     this.gananciaSemana = res;
     })
   }
 
