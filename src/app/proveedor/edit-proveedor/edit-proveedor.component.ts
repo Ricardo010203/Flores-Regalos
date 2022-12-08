@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Proveedor } from 'src/app/interfaces/Proveedor';
 import { ProveedorService } from 'src/app/services/proveedor.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-edit-proveedor',
   templateUrl: './edit-proveedor.component.html',
@@ -37,11 +39,18 @@ export class EditProveedorComponent implements OnInit {
   }
 
   editar(){
+    if(this.proveedor.name == "" || this.proveedor.nit == "" || this.proveedor.typeProduct == "" || this.proveedor.phone == ""){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Todos los campos deben estar diligenciados'
+      })
 
+    }else{
     this.proveedorService.EditarProveedor(this.proveedor.id || '',this.proveedor).subscribe( (res:any) =>{
       console.log(res);
       this.router.navigate(['proveedor']);
-    })
+    })}
   }
 
   atras(){

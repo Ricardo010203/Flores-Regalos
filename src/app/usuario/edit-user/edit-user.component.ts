@@ -4,6 +4,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-edit-user',
   templateUrl: './edit-user.component.html',
@@ -42,11 +44,18 @@ export class EditUserComponent implements OnInit {
   }
 
   editar(){
-
+    if(this.usuario.user == "" || this.usuario.password == "" || this.usuario.name == "" || this.usuario.lastName == "" || this.usuario.typeID == "" || this.usuario.dni == "" || this.usuario.phone == 0 || this.usuario.rol == 0){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Todos los campos deben estar diligenciados'
+      })
+  
+    }else{
     this.usuarioService.EditarUsuario(this.usuario.id || '',this.usuario).subscribe( (res:any) =>{
       console.log(res);
       this.router.navigate(['usuario']);
-    })
+    })}
   }
 
   atras(){

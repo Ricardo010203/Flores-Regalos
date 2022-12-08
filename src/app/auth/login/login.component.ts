@@ -31,8 +31,17 @@ export class LoginComponent implements OnInit {
 
   logIn(){
     console.log(this.usuario);
+    if(this.usuario.user == "" || this.usuario.password == ""){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Todos los campos deben estar diligenciados'
+      })
+
+    }else{
     this.authService.singin(this.usuario).subscribe( (res:any) => {
       console.log(res);
+     
       if(res == 'Usuario y/o contraseña incorrectos'){
         Swal.fire({
           icon: 'error',
@@ -55,8 +64,8 @@ export class LoginComponent implements OnInit {
 //        this.toastr.success('Inicio de sesión correcto');
         this.router.navigate(['home']);
       }
-      
-  })
+    
+  })}
  }
 
 }

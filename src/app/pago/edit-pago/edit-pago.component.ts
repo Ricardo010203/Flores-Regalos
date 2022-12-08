@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PagoXProveedor } from 'src/app/interfaces/PagoXProveedor';
 import { PagoService } from 'src/app/services/pago.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-edit-pago',
   templateUrl: './edit-pago.component.html',
@@ -41,10 +43,19 @@ export class EditPagoComponent implements OnInit {
   }
 
   editar(){
+    if(this.pago.fecha == "" || this.pago.descripcion == "" || this.pago.totalPago == 0){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Todos los campos deben estar diligenciados'
+      })
+
+    }else{
+
     this.pagoService.EditarPago(this.pago.id || '',this.pago).subscribe( (res:any) =>{
       console.log(res);
       this.router.navigate(['pago']);
-    })
+    })}
   }
 
 }

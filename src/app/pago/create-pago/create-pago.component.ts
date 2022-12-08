@@ -6,6 +6,9 @@ import { PagoService } from 'src/app/services/pago.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProveedorService } from 'src/app/services/proveedor.service';
 
+import Swal from 'sweetalert2';
+
+
 @Component({
   selector: 'app-create-pago',
   templateUrl: './create-pago.component.html',
@@ -52,10 +55,19 @@ export class CreatePagoComponent implements OnInit {
 
     console.log(this.pago);
 
+    if(this.pago.fecha == "" || this.pago.descripcion == "" || this.pago.totalPago == 0){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Todos los campos deben estar diligenciados'
+      })
+
+    }else{
+
     this.pagoService.AgregarPago(this.proveedor.id || '',this.pago).subscribe( (res:any) =>{
       console.log(res);
       this.router.navigate(['proveedor']);
-    })
+    })}
   }
 
   atras(){
