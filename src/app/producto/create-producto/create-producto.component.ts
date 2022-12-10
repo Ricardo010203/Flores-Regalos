@@ -6,6 +6,8 @@ import { ProductoService } from 'src/app/services/producto.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProveedorService } from 'src/app/services/proveedor.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-create-producto',
   templateUrl: './create-producto.component.html',
@@ -50,11 +52,18 @@ export class CreateProductoComponent implements OnInit {
   }
 
   Agregar(){
-
+    if(this.producto.nombre == "" || this.producto.price == 0 || this.producto.description == "" || this.producto.stock == 0){
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Todos los campos deben estar diligenciados'
+      })
+  
+    }else{
     this.productoService.AgregarProducto(this.proveedor.id || '',this.producto).subscribe( (res:any) =>{
       console.log(res);
       this.router.navigate(['producto']);
-    })
+    })}
   }
 
   atras(){

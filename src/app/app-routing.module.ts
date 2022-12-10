@@ -9,6 +9,8 @@ import { RoleGuard } from './role.guard';
 import { CreateUserComponent } from './usuario/create-user/create-user.component';
 import { EditUserComponent } from './usuario/edit-user/edit-user.component';
 import { PageUserComponent } from './usuario/page-user/page-user.component';
+import { RecuperarComponent } from './auth/recuperar/recuperar.component';
+import { EditarPassComponent } from './auth/editar-pass/editar-pass.component';
 
 //Proveedor
 import { CreateProveedorComponent } from './proveedor/create-proveedor/create-proveedor.component';
@@ -36,6 +38,8 @@ import { PageDomiComponent } from './domicilio/page-domi/page-domi.component';
 import { EditDomiComponent } from './domicilio/edit-domi/edit-domi.component';
 import { CreateDomiComponent } from './domicilio/create-domi/create-domi.component';
 
+
+
 const routes: Routes = [
   {path: 'creardomi', component: CreateDomiComponent, canActivate:[AuthGuard]},
   {path: 'editardomi/:id', component: EditDomiComponent, canActivate:[AuthGuard]},
@@ -57,6 +61,8 @@ const routes: Routes = [
   {path: 'usuario', component: PageUserComponent, canActivate:[AuthGuard,RoleGuard]},
   {path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
   {path: 'crearusuario', component: CreateUserComponent, canActivate:[AuthGuard,RoleGuard]},
+  { path: 'editarpassword/:id', component: EditarPassComponent},
+  { path: 'recuperar', component: RecuperarComponent},
   { path: 'login', component: LoginComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];

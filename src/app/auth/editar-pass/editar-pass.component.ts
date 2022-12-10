@@ -1,27 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/interfaces/Usuario';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.css']
+  selector: 'app-editar-pass',
+  templateUrl: './editar-pass.component.html',
+  styleUrls: ['./editar-pass.component.css']
 })
-export class EditUserComponent implements OnInit {
+export class EditarPassComponent implements OnInit {
 
   usuario: Usuario = {
     id:"",
-    user:"",
     name:"",
-    lastName:"",
-    typeID:"",
-    dni:"",
-    phone:0,
-    rol:0,
+    user:"",
     password:""
   }
 
@@ -44,22 +38,25 @@ export class EditUserComponent implements OnInit {
   }
 
   editar(){
-    if(this.usuario.email == "" || this.usuario.user == "" || this.usuario.password == "" || this.usuario.name == "" || this.usuario.lastName == "" || this.usuario.typeID == "" || this.usuario.dni == "" || this.usuario.phone == 0 || this.usuario.rol == 0){
+    if(this.usuario.name == "" || this.usuario.user == "" || this.usuario.password == ""){
       Swal.fire({
         icon: 'error',
-        title: 'Error',
+        title: 'Atención',
         text: 'Todos los campos deben estar diligenciados'
       })
   
     }else{
     this.usuarioService.EditarUsuario(this.usuario.id || '',this.usuario).subscribe( (res:any) =>{
       console.log(res);
-      this.router.navigate(['usuario']);
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Usuario modificado exitosamente',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      this.router.navigate(['login']);
     })}
-  }
-
-  atras(){
-    this.router.navigate(['usuario']);
   }
 
 }

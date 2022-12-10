@@ -5,6 +5,9 @@
                 <div class="card-body text-center">
                     <span class="titulo"> EDITAR USUARIO</span><div class="container">
     <div class="row">
+      <div class="input-group mb-3">
+        <input [(ngModel)]="usuario.email" required="" type="text" class="form-control" placeholder="Correo" required="">
+      </div>
         <div class="input-group mb-3">
             <input [(ngModel)]="usuario.name" required="" type="text" class="form-control" placeholder="Nombre" required="">
         </div>

@@ -15,6 +15,7 @@ export class CreateUserComponent implements OnInit {
   
   usuario: Usuario = {
     user:"",
+    email:"",
     name:"",
     lastName:"",
     typeID:"",
@@ -34,7 +35,7 @@ export class CreateUserComponent implements OnInit {
 
   Agregar(){
    // delete this.usuario.id;
-   if(this.usuario.user == "" || this.usuario.password == "" || this.usuario.name == "" || this.usuario.lastName == "" || this.usuario.typeID == "" || this.usuario.dni == "" || this.usuario.phone == 0 || this.usuario.rol == 0){
+   if(this.usuario.email == "" || this.usuario.user == "" || this.usuario.password == "" || this.usuario.name == "" || this.usuario.lastName == "" || this.usuario.typeID == "" || this.usuario.dni == "" || this.usuario.phone == 0 || this.usuario.rol == 0){
     Swal.fire({
       icon: 'error',
       title: 'Error',

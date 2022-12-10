@@ -41,4 +41,8 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+  recuperar(user:Usuario){
+    return this.http.post(`${this.URL}/recuperar`,user)
+  }
+
 }
