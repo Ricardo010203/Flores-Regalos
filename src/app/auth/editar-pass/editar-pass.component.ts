@@ -12,6 +12,8 @@ import Swal from 'sweetalert2';
 })
 export class EditarPassComponent implements OnInit {
 
+  password:string ="";
+
   usuario: Usuario = {
     id:"",
     name:"",
@@ -38,6 +40,7 @@ export class EditarPassComponent implements OnInit {
   }
 
   editar(){
+    this.usuario.password = this.password;
     if(this.usuario.name == "" || this.usuario.user == "" || this.usuario.password == ""){
       Swal.fire({
         icon: 'error',
